@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      input[type="submit"] {
+        margin: 5px;
+      }
+      button {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tabelBarang" style="overflow-x: auto">
+      <div class="text-center mb-4">
+        <label class="d-inline">Barang</label><br />
+        <button
+          class="btn btn-success"
+          id="btnTambahBarang"
+          data-bs-toggle="modal"
+          data-bs-target="#ModalTambah"
+        >
+          Tambah
+        </button>
+      </div>
+      <table class="table table-success table-striped">
+        <tr bgcolor="blue">
+          <th>Kode</th>
+          <th>Nama</th>
+          <th>Satuan</th>
+          <th>Harga</th>
+          <th>Action</th>
+        </tr>
+        <tbody id="tbody">
+          <tr>
+            <td>A01</td>
+            <td>Ram1</td>
+            <td>Pcs</td>
+            <td>1000</td>
+            <td align="left">
+              <button
+                class="btnUpdateBarang btn btn-success"
+                id="btnUpdateBarang"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalUpdateBarang"
+              >
+                U
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>A02</td>
+            <td>Ram2</td>
+            <td>Pcs</td>
+            <td>1500</td>
+            <td align="left">
+              <button
+                class="btnUpdateBarang btn btn-success"
+                id="btnUpdateBarang"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalUpdateBarang"
+              >
+                U
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>B01</td>
+            <td>CPU1</td>
+            <td>Pcs</td>
+            <td>2000</td>
+            <td align="left">
+              <button
+                class="btnUpdateBarang btn btn-success"
+                id="btnUpdateBarang"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalUpdateBarang"
+              >
+                U
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>B02</td>
+            <td>CPU2</td>
+            <td>Pcs</td>
+            <td>2500</td>
+            <td align="left">
+              <button
+                class="btnUpdateBarang btn btn-success"
+                id="btnUpdateBarang"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalUpdateBarang"
+              >
+                U
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------- -->
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="row card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Barang</h6>
+          <button
+            class="btn btn-success"
+            id="btnTambahBarang"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Tambah
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table
+              class="table table-bordered"
+              id="dataTable"
+              width="100%"
+              cellspacing="0"
+            >
+              <thead>
+                <tr>
+                  <th>Kode</th>
+                  <th>Nama</th>
+                  <th>Satuan</th>
+                  <th>Harga</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A01</td>
+                  <td>Ram1</td>
+                  <td>Pcs</td>
+                  <td>1000</td>
+                  <td align="left">
+                    <button
+                      class="btnUpdateBarang btn btn-success"
+                      id="btnUpdateBarang"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ModalUpdateBarang"
+                    >
+                      U
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>A02</td>
+                  <td>Ram2</td>
+                  <td>Pcs</td>
+                  <td>1500</td>
+                  <td align="left">
+                    <button
+                      class="btnUpdateBarang btn btn-success"
+                      id="btnUpdateBarang"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ModalUpdateBarang"
+                    >
+                      U
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>B01</td>
+                  <td>CPU1</td>
+                  <td>Pcs</td>
+                  <td>2000</td>
+                  <td align="left">
+                    <button
+                      class="btnUpdateBarang btn btn-success"
+                      id="btnUpdateBarang"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ModalUpdateBarang"
+                    >
+                      U
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>B02</td>
+                  <td>CPU2</td>
+                  <td>Pcs</td>
+                  <td>2500</td>
+                  <td align="left">
+                    <button
+                      class="btnUpdateBarang btn btn-success"
+                      id="btnUpdateBarang"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ModalUpdateBarang"
+                    >
+                      U
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+      <!-- Modal Tambah Barang-->
+      <div
+        class="modal fade"
+        id="ModalTambah"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Tambah Barang
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="formBarang">
+                <form target="_blank" method="post" autocomplete="on">
+                  <label for="kode" class="form-label">Kode:</label>
+                  <input type="text" id="kodeadd" class="form-control" />
+
+                  <label for="nama" class="form-label">Nama:</label>
+                  <input type="text" id="namaadd" class="form-control" /><br />
+
+                  <!-- <label for="golongan" class="form-label">Golongan:</label>
+                            <select id = "golonganadd" name=" golongan"  class="form-select">
+                                <option value = "Komputer">Komputer</option>
+                                <option value = "Laptop">Laptop</option>
+                                <option value = "Tablet">Tablet</option>
+                            </select><br> -->
+
+                  <label for="satuan" class="form-label">Satuan:</label>
+                  <input
+                    type="text"
+                    id="satuanadd"
+                    class="form-control"
+                  /><br />
+
+                  <label for="harga" class="form-label">Harga:</label>
+                  <input
+                    type="text"
+                    id="hargaadd"
+                    class="form-control"
+                  /><br /><br />
+
+                  <!-- <label for="keterangan" class="form-label">Keterangan:</label>
+                            <textarea class="form-control" rows="5" >
+                            </textarea> -->
+
+                  <!-- <input class="btn btn-success" type = "submit" name="save" id="save" value="Submit" data-bs-dismiss="modal"> -->
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Save
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+
+              <!-- <button type="button" class="btn btn-success" data-bs-dismiss="modal" name="save" id="save" >Save</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ---------------------------- -->
+
+      <!-- Modal Update Barang-->
+      <div
+        class="modal fade"
+        id="ModalUpdateBarang"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Ubah Barang
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="formBarang">
+                <form
+                  action="tugas1tabelbarang.html"
+                  target="_blank"
+                  method="post"
+                  autocomplete="on"
+                >
+                  <div>
+                    <label for="kode" class="form-label">Kode:</label>
+                    <input type="text" id="kode" class="form-control" />
+                  </div>
+
+                  <label for="nama" class="form-label">Nama:</label>
+                  <input type="text" id="nama" class="form-control" /><br />
+
+                  <!-- <label for="golongan" class="form-label">Golongan:</label>
+                            <select id = "model" name=" model"  class="form-select">
+                                <option value = "Komputer">Komputer Perangkat</option>
+                                <option value = "Laptop">Laptop</option>
+                                <option value = "Tablet">Tablet</option>
+                            </select><br> -->
+
+                  <label for="satuan" class="form-label">Satuan:</label>
+                  <input type="text" id="kode" class="form-control" /><br />
+
+                  <label for="harga" class="form-label">Harga:</label>
+                  <input
+                    type="text"
+                    id="harga"
+                    class="form-control"
+                  /><br /><br />
+
+                  <!-- <label for="keterangan" class="form-label">Keterangan:</label>
+                            <textarea class="form-control" rows="5" >
+                            </textarea> -->
+
+                  <!-- <input class="btn btn-success" type = "submit" name="save" id="save" value="Submit" data-bs-dismiss="modal"> -->
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+                name="update"
+                id="update"
+              >
+                Update
+              </button>
+              <button
+                class="btnHapusBarang btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#ModalHapusBarang"
+                data-kode="M001"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ---------------------------- -->
+      <!--Modal Hapus Barang-->
+      <div
+        class="modal fade"
+        id="ModalHapusBarang"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Hapus Barang
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="formPenjualan">
+                <div class="modal-body">
+                  <p>Apakah Anda Yakin Untuk Menghapus Barang?</p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btnYaHapusBrg btn btn-success"
+                id="btnYaHapusBrg"
+                data-bs-dismiss="modal"
+              >
+                Ya
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ---------------------------- -->
+    </div>
+    <script>
+      console.log("masuk di script BArang");
+
+      //------------REMOVE DARI TABEL
+      $(document).ready(function () {
+        $(".btnUpdateBarang").click(function () {
+          var row = $(this).closest("tr");
+          var kode = row.find("td:first").text();
+          $("#btnYaHapusBrg").click(function () {
+            console.log("ya hapus clicked");
+            row.remove();
+          });
+        });
+
+        //     $("#ModalHapusBarang").on("click", ".btnYaHapusBrg", function () {
+        //         var id = $(this).attr("id");
+        //         console.log("ya hapus clicked");
+        //         $(this).closest("tr").remove();
+        //   });
+        //-----------------------------------------------
+        $("#save").click(function () {
+          console.log("save clicked");
+          let panjang = $("#tbody tr").length;
+          let kode = $("#kodeadd").val();
+          let nama = $("#namaadd").val();
+          let satuan = $("#satuanadd").val();
+          let harga = $("#hargaadd").val();
+          let golongan = $("#golonganadd").val();
+
+          $("#tbody").append(
+            "<tr><td>" +
+              kode +
+              "</td><td>" +
+              golongan +
+              "</td><td>" +
+              nama +
+              "</td><td>" +
+              satuan +
+              "</td><td>" +
+              harga +
+              '</td><td><button backgroun id="btnUpdateBarang" class="btnUpdateBarang btn btn-success">U</button><button backgroun id="id' +
+              panjang +
+              '" class="btnHapusBarang btn btn-success">X</button></td></tr>'
+          );
+        });
+        //-------------FUNGSI ADD TO MASTER
+
+        //  //------------------ FUNGSI UBAH BARANG
+        //  $("#golongan").click(function () {
+        //     let nmbrg = $("#golongan").find(":selected").val();
+        //     let nama = "";
+        //     let satuan = "";
+        //     let harga = 0;
+        //     let jumlah = 0;
+
+        //     if (nmbrg == "Komputer") {
+        //       nama = "Kompuer";
+        //       satuan = "pcs";
+        //       harga = 1000;
+        //       //set txt
+        //       $("#satuan").val(satuan);
+        //       $("#harga").val(harga);
+
+        //     } else if (nmbrg == "Laptop") {
+        //         nama = "Laptop";
+        //       satuan = "pcs";
+        //       harga = 1000;
+        //       //set txt
+        //       $("#satuan").val(satuan);
+        //       $("#harga").val(harga);
+
+        //     } else if (nmbrg == "Tablet") {
+        //         nama = "Tablet";
+        //       satuan = "pcs";
+        //       harga = 1000;
+        //       //set txt
+        //       $("#satuan").val(satuan);
+        //       $("#harga").val(harga);
+        //     }
+        //   });
+        //-------------------------------------
+      });
+    </script>
+  </body>
+</html>
